@@ -1,0 +1,21 @@
+# Secrets and local config
+.env
+*.auth
+*.cache
+.pypowerwall*
+tedapi_*.json
+
+# Local data
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
