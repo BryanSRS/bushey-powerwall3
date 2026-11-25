@@ -1,0 +1,16 @@
+# Netplan config: join the Powerwall's Wi-Fi without making it the internet route.
+# Copy to /etc/netplan/60-powerwall-wifi.yaml (chmod 600), fill in the three
+# placeholders there, then run: sudo netplan try
+# Don't put the real password in this repo copy.
+network:
+  version: 2
+  wifis:
+    WIFI_DEVICE:                 # from `ip link`, e.g. wlp2s0
+      dhcp4: true
+      dhcp4-overrides:
+        use-routes: false        # no default route via the Powerwall; Ethernet stays the internet route
+        use-dns: false
+      optional: true             # don't hold up boot if the Powerwall is unreachable
+      access-points:
+        "TeslaPW_XXXXXX":
+          password: "LABEL_PASSWORD"
